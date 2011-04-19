@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm}
+\usepackage{fullpage}
+
+\begin{document}
+\title{MATH 22 (Differential Equations) Study Guide}
+\author{Chris Barna (chris@unbrain.net)}
+\date{April 2011}
+
+\maketitle
+
+\section{Definitions}
+\begin{enumerate}
+  \item \textbf{Differential equation:} any equation that has a derivative. Ex: $\frac{d^2 y}{dx^2} + xy = \frac{dy}{dx}$.
+  \item \textbf{Partial differential equation:} A differential equation that has a partial derivative.
+  \item \textbf{Ordinary differential equation:} A differential equation that does not have partial derivaties.
+  \item \textbf{Order:} The order of the highest ordered derivative in a differential equation.
+  \item \textbf{Degree:} The algebraic degree of the highest ordered derivative.
+  \item \textbf{Linear differential equation:} A differential equation that is linear in the dependent variable and its derivatives.
+\end{enumerate}
+
+\section{Separation of Variables}
+\begin{enumerate}
+  \item \textbf{Step 1.} Separate variables.
+  \item \textbf{Step 2.} ...
+  \item \textbf{Step 3.} Profit.
+\end{enumerate}
+
+\section{Homogenous Functions}
+Function $f(x,y)$ is homogenous of degree $k$ if $f(\lambda x, \lambda y) = \lambda^k f(x,y)$. If coefficients of $dx$ and $dy$ are homogenous of the same degree, use substitution. Let $x=vy$ or $y=vx$.
+
+\section{Exact Differential Equations}
+An equation is an exact differential equation if there exists a function $F(x,y)=c$ such that the total differential of $F(x,y)=Mdx+Ndy$.
+\begin{eqnarray}
+Mdx + Ndy = 0 \\
+M = \frac{\partial F}{\partial x}, \: N = \frac{\partial F}{\partial y} \\ 
+My = \frac{\partial^2 F}{\partial x \partial y} = Nx \\
+My = Nx
+\end{eqnarray}
+
+\section{Linear, First Order Differential Equations}
+\begin{eqnarray}
+a(x)\frac{dy}{dx} + b(x)y &=& c(x) \\
+\frac{dy}{dx} + \frac{b(x)}{a(x}y &=& \frac{c(x)}{a(x)} \\
+\frac{dy}{dx} + P(x)y &=& Q(y) \\
+dy + (Py - Q)dx &=& 0\\
+v(x)dy + [Pv(x)y - v(x)Q]dx &=& 0 \\
+v(x) = e^{\int{Pdx}}
+\end{eqnarray}
+
+Then solve the equation as an exact differential equation.
+\end{document}
