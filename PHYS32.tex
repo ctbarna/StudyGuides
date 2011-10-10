@@ -1,0 +1,184 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm}
+\usepackage{fullpage}
+
+\begin{document}
+\title{PHYS 32 Study Guide}
+\author{Chris Barna (chris@unbrain.net)}
+\date{April 2011}
+
+\maketitle
+
+\section{Simple Harmonic Motion}
+\begin{equation}
+  x=Acos(\omega t + \phi)
+\end{equation}
+
+Since our oscillating mass repeats its motion after a time equal to the period ($T$), and the sine or cosine function repeats itself every $2\pi$ radians, then:
+\begin{equation}
+  \omega = \frac{2 \pi}{T} = 2 \pi f = \sqrt{\frac{k}{m}}
+\end{equation}
+
+We call $\omega$ the \textbf{angular frequency}.
+\begin{equation}
+  T = 2 \pi \sqrt{\frac{m}{k}}
+\end{equation}
+
+\subsection{Energy in a Simple Harmonic Oscillator} % (fold)
+\begin{equation}
+  E = \frac{1}{2}kA^2 = \frac{1}{2}mv^2_{max}
+\end{equation}
+
+\begin{equation}
+  v_{max} = \omega A
+\end{equation}
+
+\section{Pendulums} % (fold)
+\label{sec:Pendulums}
+The displacement of the pendulum along the arc is given by $x = l \theta$ where $\theta$ is the angle (in radians) that the cord makes with the vertical and $l$ is the length of the cord. The restoring force is equal to $F = -mg \sin \theta$.
+
+\begin{equation}
+  \omega = \sqrt{\frac{g}{l}}
+\end{equation}
+\begin{equation}
+  \Theta = \Theta_{max} \cos (\omega t + \phi)
+\end{equation}
+So the frequency is: $f = \frac{1}{2\pi}\sqrt{\frac{g}{l}}$. The period is $T = 2\pi \sqrt{\frac{l}{g}}$.
+
+\subsection{Physical Pendulum}
+\begin{equation}
+  T = 2 \pi \sqrt{\frac{I}{mgh}}
+\end{equation}
+% section Pendulums (end)
+
+\section{Newton's Law of Universal Gravitation}
+\begin{equation}
+  F_{grav} = G \frac{m_1 m_2}{r^2}
+\end{equation}
+
+For sattelites that move in a circle:
+\begin{equation}
+  G \frac{m m_E}{r^2} = m \frac{v^2}{r}
+\end{equation}
+
+\subsection{Escape Velocity}
+\begin{equation}
+  v_{esc} = \sqrt{2GM_E/r_E}
+\end{equation}
+
+
+\subsection{Kepler's Laws of Planetary Motion}
+\begin{enumerate}
+  \item The path of each planet about the Sun is an elipse with the sun at one focus.
+  \item Each planet moves so that an imaginary line drawn from the Sun to the planet sweeps out equal areas in equal periods of time (conservation of momentum).
+  \item $\frac{T_1^2}{T_2^2} = \frac{s_1^3}{s_2^3}$; Generally $s_i = r_i$.
+\end{enumerate}
+
+\section{Fluids}
+\begin{itemize}
+  \item \textbf{Density ($\rho$):} $\rho = \frac{m}{V}$.
+  \item \textbf{Pressure ($P$):} $P = \frac{F}{A}$. Units are \textbf{pascals} (Pa) which are equal to $1 N/m^2$. Pressure due to weight of a liquid is $P = \rho gh$ (potentially plus some initial pressure $P_0$.
+  \item \textbf{Buoyancy ($F_b$):} $F_B = \rho_F V g$. At eqiulibrium, $\rho_{sub} V_{sub} g = \rho_F V_sub g$.
+\end{itemize}
+
+\subsection{Pascal's Principle}
+\begin{eqnarray}
+P_{out} &=& P_{in} \\
+\frac{F_{out}}{A_{out}} &=& \frac{F_{in}}{A_{in}}
+\end{eqnarray}
+
+\subsection{Fluids in Motion}
+\begin{equation}
+  \rho_1 A_1 v_1 = \rho_2 A_2 v_2
+\end{equation}
+Since ideal fluids are incompressible, $\rho_1 = \rho_2$.
+
+\subsubsection{Bernoulli's equation}
+\begin{equation}
+  P_1 + \frac{1}{2}\rho v_1^2 + \rho g y_1 = P_2 + \frac{1}{2} \rho v_2^2 + \rho g y_2
+\end{equation}
+
+\section{Waves}
+\begin{equation}
+  y(x, t) = A \sin (kx - \omega t)
+\end{equation}
+\begin{itemize}
+  \item \textbf{Wavelength ($\lambda$)}
+  \item \textbf{Angular Wave Number ($k$):} $\frac{2 \pi}{\lambda}$
+  \item \textbf{Wave Number ($K$):} $\frac{1}{\lambda}$
+  \item \textbf{$\omega$:} $\frac{2 \pi}{T}$
+  \item \textbf{Wave Speed ($v$):} $v = \frac{\omega}{k} = \frac{2 \pi}{T} \frac{\lambda}{2 \pi} = \frac{\lambda}{T} = \lambda f = \sqrt{\frac{T}{\mu}}$
+  \item $\mu = \frac{m}{l}$
+  \item \textbf{Intensity ($I$):} $\frac{\bar{P}}{S}$ where $S$ typically equals $4 \pi r^2$ and $\bar{P} = \frac{E}{t}$ 
+\end{itemize}
+
+\subsection{Standing Wave} % (fold)
+\label{sub:StandingWave}
+\begin{equation}
+  y = y_1 + y_2 = 2A\sin (kx) \cos (\omega t)
+\end{equation}
+
+\subsection{Decibels}
+\begin{equation}
+  \beta = 10 \log \frac{I}{I_0}
+\end{equation}
+
+\subsection{Fundamental Frequencies} % (fold)
+\begin{itemize}
+  \item \textbf{Attached At Both Ends:} $l = \frac{n}{2} \lambda_1$ where $n = 1, 2, 3,\dots$
+  \item \textbf{One End Closed:} $l = \frac{n}{4} \lambda_1$ where $n = 1, 3, 5,\dots$
+  \item \textbf{Open At Both Ends:} $l = \frac{n}{2} \lambda_1$ where $n = 1, 2, 3,\dots$
+\end{itemize}
+
+\subsection{Beat Frequency}
+\begin{equation}
+  f_{beat} = f_2 - f_1
+\end{equation}
+
+\subsection{Doppler Effect}
+\begin{itemize}
+  \item \textbf{Moving Source:} $f' = f(\frac{v_{snd}}{v_{snd} \pm v_s})$ ($-$ is towards, $+$ is away)
+  \item \textbf{Moving Detector:} $f' = f(\frac{v_{snd} \pm v_d}{v_{snd}})$ ($+$ is towards, $-$ is away)
+  \item \textbf{Both Are Moving:} $f' = f(\frac{v \pm v_d}{v \pm v_s})$
+\end{itemize}
+
+\section{Light} % (fold)
+\label{sec:Light}
+\begin{itemize}
+  \item \textbf{Snell's law of refraction:} $n_1 \sin \theta_1 = n_2 \sin \theta_2$
+\end{itemize}
+
+When a light wave travels from one medium to another, its frequency does not change but it's wavelength does.
+
+\subsection{Thin Film Interference} % (fold)
+If a substance is sitting on another substance and the higher substance has a lower index of refraction. Part of light of a uniform wavelength is refracted off each layer. If the difference in path between the light off the top and bottom layers is a whole number of wavelengths, then constructive interference occurs. Similarly, if it is $\frac{1}{2}, \frac{3}{2} , \dots$ there will be destructive interference.
+
+However, if "a beam of light reflected by a material with index of refraction greater than that of the material in which it is traveling, changes phase by 1/2 cycle.
+% subsection Thin Film Interference (end)
+% section Light (end)
+
+\section{Thermodynamics} % (fold)
+\label{sec:Thermodynamics}
+\begin{itemize}
+  \item \textbf{Reservoir:} Has as much heat as you want, will hold as much heat as you want.
+  \item \textbf{Zeroth Law:} If bodies $a$ and $b$ are each in thermal equilibrium with body $c$ then they are in thermal equilibrium with each other.
+  \item \textbf{Linear Thermal Expansion:} $\Delta l = \alpha l_0 \Delta T$. $\alpha$ is the coefficient of linear expansion.
+  \item \textbf{Volumetric Thermal Expansion:} $\Delta V = \beta V_0 \Delta T$
+  \item \textbf{Boyle's Law:} $PV = c$
+  \item \textbf{Charles's Law:} The volume of a given amount of gas is directly proportional to the absolute temperature when the pressure is kept constant.
+  \item \textbf{Gay-Lussac's law:} At constant volume, the absolute pressure of a gas is directly proportional to the absolute temperature.
+  \item \textbf{Ideal Gas Law:} $PV = nRT$ where $n$ is the number of mols you have (mass / molecular mass) and $R = 8.314J$
+  \item \textbf{Heat ($Q$):} $Q = mc \Delta T$. Heat lost is equal to heat gained.
+  \item \textbf{First Law of Thermodynamics:} $\Delta E_{int} = Q - W$ or ($\Delta K + \Delta U + \Delta E_{int} = Q - W$). $\Delta E_{int} = \frac{3}{2}nR \Delta T$.
+  \item \textbf{Isothermal Processes ($\Delta T = 0$):} Ideal gas law stands. $W = Q = nRT ln \frac{V_B}{V_A}$.
+  \item \textbf{Adiabatic Processes ($Q=0$):} $\Delta E_{int} = -W$. $PV^\gamma = c$. $\gamma = \frac{C_P}{C_V}$
+  \item \textbf{Isobaric Processes ($P=c$):} $Q = \Delta E_{int} + W$. $W = nRT_B (1 - \frac{V_A}{V_B})$.
+  \item \textbf{Isovolumetric Processes ($V=c$):} $W=0$ so $Q = \Delta E_{int}$
+  \item \textbf{Second Law of Thermodynamics:} Heat can flow spontaneously from a hot object to a cold object; heat will not flow spontaneously from a cold object to a hot object.
+  \item \textbf{Heat Engines:} $Q_H = W + Q_L$ by conservation of energy. Efficiency is defined as $e = \frac{W}{Q_H} = \frac{Q_H - Q_L}{Q_H}$.
+  \item \textbf{Carnot efficiency:} A reversible engine. $e_{ideal} = 1 - \frac{T_L}{T_H}$
+  \item \textbf{Entropy:} $\Delta S = \frac{Q}{T}$. $\Delta S = S_b - S_a = \int_a^b dS = \int_a^b \frac{dQ}{T}$.
+\end{itemize}
+
+% section Thermodynamics (end)
+\end{document}

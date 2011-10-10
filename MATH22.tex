@@ -49,4 +49,43 @@ v(x) = e^{\int{Pdx}}
 \end{eqnarray}
 
 Then solve the equation as an exact differential equation.
+
+\section{Integrating factors}
+
+Suppose that a function $u$ is to be an integrating factor of $Mdx+Ndy=0$. Then the equation $uMdx+uNdy=0$ must be exact. Therefore,
+\begin{eqnarray}
+\frac{\partial}{\partial y}(uM) &=& \frac{\partial}{\partial x}(uN) \\
+u \frac{\partial M}{\partial y} + M \frac{\partial u}{\partial y} &=& u \frac{\partial N}{\partial x} + N \frac{\partial u}{\partial x} \\
+u ( \frac{\partial M}{\partial y} - \frac{\partial N}{\partial x} ) &=& N \frac{\partial u}{\partial x} - M \frac{\partial u}{\partial y}
+\end{eqnarray}
+
+If $u$ is a function of $x$ alone, then $\partial u / \partial y = 0$ and $\partial u / \partial x$ becomes $du/dx$. Leading to:
+\begin{eqnarray}
+\frac{1}{N}(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x})dx=\frac{du}{u} = f(x)
+\end{eqnarray}
+So the integracting factor is $u = e^{\int f(x) dx}$. Similarly:
+\begin{eqnarray}
+\frac{1}{M}(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x})=-g(y)
+\end{eqnarray}
+
+\section{Linear Coefficients in Two Variables}
+\begin{eqnarray}
+(a_1 x + b_1 y + c_1)dx + (a_2 x + b_2 y + c_2)dy = 0 \\
+a_1 x + b_1 y + c_1 = 0 \; a_2 x + b_2 y + c_2 = 0
+\end{eqnarray}
+
+\subsection{Intersection}
+Suppose they intersect at $(h,k)$. Let $x=u+h,\: y=v+k$. You end up with the homogenous differential equation:
+\begin{eqnarray}
+(a_1 u + b_1 v)du + (a_2 u + b_2 v)dv = 0
+\end{eqnarray}
+
+\subsection{Parallel}
+Suppose they are parallel, then $\frac{a_1}{b_1}=\frac{a_2}{b_2}$ so $a_2 = k a_1$. Same for $b$. Then:
+\begin{eqnarray}
+(a_1 x + b_1 y + c)dx &+& (k a_1 x + k b_1 y + c_2)dy = 0 \\
+&+&[k(a_1 x + b_1 y) + c_2]dy = 0
+\end{eqnarray}
+
+Let $w=a_1 x + b_1 y$ and $dw = a_1 dx + b_1 dy$. Then separate variables.
 \end{document}
