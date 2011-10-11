@@ -1,0 +1,142 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm,amsfonts}
+% \usepackage{fullpage}
+
+\begin{document}
+\title{Math 122 (Probability and Statistics) Study Guide}
+\author{Chris Barna (chris@unbrain.net)}
+\date{Fall 2011}
+
+\maketitle
+
+\section{Sample Space \& Events}
+
+\subsection{Sample Space}
+The sample space, $S$, is the set of all possible outcomes from an event.
+
+\begin{enumerate}
+\item \textbf{Discrete Sample Space:}
+  A discrete sample space has a finite or a countably infinite number of
+  elements.
+\item \textbf{Continuous Sample Space:}
+  A continuous sample space has an uncountably infinite number of elements.
+\end{enumerate}
+
+\subsection{Event}
+An event, $A$, is a subset of the sample space.
+
+\begin{enumerate}
+\item \textbf{Simple Event:}
+  A simple event, $E$, is a single element of $S$.
+\end{enumerate}
+
+\section{Probability}
+The probability of an event, denoted $P(A)$, is the likelihood of the event
+occuring.
+
+\begin{enumerate}
+\item $P(A) = [0, 1]$
+\item $P(S) = 1$
+\item If $A_1, A_2, ..., A_n$ are mutually disjoint (also mutually exclusive),
+that is $A_i \bigcap A_j = \emptyset$ if $i \ne j$ then the probability of the
+union is $P(\bigcup_{i=1}^{n}a_i = \sum_{i=1}{n}P(A_i))$.
+\end{enumerate}
+
+\subsection{Additive Law of Probability}
+\begin{equation}
+  P(A \bigcup B) = P(A) + P(B) - P(A \bigcap B)
+\end{equation}
+
+where $P(AB) = P(A \bigcap B)$.
+
+\subsection{Multiplicative Law of Probability}
+If $C \subset B \subset A$ then $P(C) = P(A) \cdot P(B|A) \cdot P(C|B)$.
+
+\subsection{Conditional Probability}
+Conditional probability of $A$ given $B$ (noted $P(A|B)$) is the probability
+that $A$ will occur given that we know $B$ will occur.
+
+\begin{equation}
+  P(A|B) = \frac{P(A \bigcap B)}{P(B)}
+\end{equation}
+
+\subsection{Independence}
+$A$ and $B$ are independent if the occurence (or nonoccurence) of $A$ or $B$
+has no influence on the occurence of the other event.
+
+\begin{equation}
+  P(A \bigcap B) = P(A)P(B)
+\end{equation}
+
+\subsection{Total Probability}
+If $B_1, B_2, ..., B_n$ form a disjoint partition of $S$ then, for any (event)
+$A$: $P(A) = \sum_{i=1}^{n}P(A|B_i)P(B_i) = \sum_{i=1}^n P(A \bigcap B_i)$.
+
+\subsubsection{Disjoint Partitions}
+$B_1, B_2, ..., B_n$ form a disjoint partition of $S$ if $B_1,...,B_n$ are
+mutually disjoint and $\bigcup_{i=1}^{n}B_i = S$.
+
+\subsection{Bayes' Rule}
+Let $B_1, B_2, ..., B_n$ form a disjoint partition of $S$ for any $A$ when
+$P(A) \ne 0$.
+
+\begin{equation}
+  P(B_j|A) = \frac{P(A|B_j)P(B_j)}{\sum_{i=1}^{n} P(A|B_i)P(B_i)}
+\end{equation}
+
+\section{Orderings, etc...}
+\subsection{Permutations}
+The number of permutations is the number of ways we can take $r$ ordered
+objects from $n$ objects. Denoted $_nP_r$.
+
+\begin{equation}
+_nP_r = \frac{n!}{(n-r)!}
+\end{equation}
+
+\subsection{Combinations}
+The number of combinations $_nC_r$ or $n \choose r$ is the number of ways you
+can take $r$ unordered objects from $n$ objects.
+
+\begin{equation}
+  {n\choose r} = \frac{n!}{r!(n-r)!}
+\end{equation}
+
+\subsubsection{Binomial Theorem}
+\begin{equation}
+(x+y)^n = \sum_{r=0}^{n} {n \choose r}x^n y^{n-r}
+\end{equation}
+
+\subsection{Multinomial Combinations}
+The number of ways we can take $n_1, n_2, ...  n_m$ objects in $k$ groups from
+$n$ objects where order within each group doesn't matter is
+$\frac{n!}{n_1!n_2!...n_m!}$.
+
+\section{Random Variables}
+A random variable (RV) is a function from $S$, the sample space, to a subset
+of $\mathbb{R}$, the set of all real numbers. Denoted with capital letters.
+
+\begin{enumerate}
+\item $P(Y=y)$ or $p(y)$ means the probability that we will choose a simple
+  event that is mapped to the value.
+\end{enumerate}
+
+\section{Discrete Distributions}
+A distribution of an RV is all the possible values taken by the RV along with
+the probability of each of these values.
+
+\section{Expected Value}
+The average value of a random variable ($Y$). Written $E[Y]$ or $\mu_Y$.
+
+\begin{equation}
+\sum_Y y p(y) = E[Y]
+\end{equation}
+
+\subsection{Variance}
+\begin{equation}
+V[Y] = E[(y-\mu_Y)^2] = E[Y]^2 - \mu^2
+\end{equation}
+
+\begin{equation}
+SD[Y] = \sigma_Y = \sqrt{V[Y]}
+\end{equation}
+\end{document}
