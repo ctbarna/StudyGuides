@@ -1,1 +1,10 @@
-Is there any reason not to put my study guides on GitHub?
+The TeX files of my study guides from (so far) Spring and Fall 2011.
+
+## Classes
+* Spring
+  * Differential Equations
+  * Combinatorics
+  * Physics II
+* Fall
+  * Advanced Calculus
+  * Probability and Statistics
