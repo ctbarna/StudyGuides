@@ -1,5 +1,7 @@
 \documentclass{article}
 \usepackage{amsmath,amsthm,amsfonts}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex}
 % \usepackage{fullpage}
 
 \begin{document}
@@ -124,19 +126,72 @@ of $\mathbb{R}$, the set of all real numbers. Denoted with capital letters.
 A distribution of an RV is all the possible values taken by the RV along with
 the probability of each of these values.
 
-\section{Expected Value}
+\subsection{Expected Value}
 The average value of a random variable ($Y$). Written $E[Y]$ or $\mu_Y$.
 
 \begin{equation}
 \sum_Y y p(y) = E[Y]
 \end{equation}
 
-\subsection{Variance}
+\subsubsection{Variance}
 \begin{equation}
 V[Y] = E[(y-\mu_Y)^2] = E[Y]^2 - \mu^2
 \end{equation}
 
 \begin{equation}
 SD[Y] = \sigma_Y = \sqrt{V[Y]}
+\end{equation}
+
+\subsection{Geometric Distributions}
+First, $\sum_{n=0}^{\infty} x^n = \frac{1}{1-x}$. If probability of "success"
+is $p$, the probability of "failure" is $q=1-p$, and $Y$ is the number of
+attempts until success, $p(y)=q^{y-1}p$.
+
+\begin{enumerate}
+  \item $E[Y] = \frac{1}{p}$.
+  \item $V[Y] = \frac{1-p}{p^2}$.
+\end{enumerate}
+
+\subsection{Poisson Distributions}
+Divide period of time into $n$ equal subintervals. Probability of an event
+happening during a given $n$ is $p$. More generally, $np = \lambda$. So
+$p(y)=\frac{\lambda^y}{y!}e^{-1}$. Worth knowing that
+$\sum_{0}^{n}\frac{x^n}{x!}=e^x$.
+
+\begin{enumerate}
+  \item $E[Y]=\lambda$.
+  \item $V[Y]=\lambda$.
+\end{enumerate}
+
+\subsection{Moment Generating Functions}
+The \textbf{moment generating function} $m(t)$ for a random variable $Y$ is
+defined to be $m(t)=E(e^{tY})$. We say that a moment-generating function for
+$Y$ exists if there exists a positive constant $b$ such that $m(t)$ is finite
+for $|t| \leq b$.
+
+\subsection{Tchebysheff's Theorem}
+Let $Y$ be a random variable with mean $\mu$ and finite variance $\sigma^2$.
+Then, for any constant $k>0$, $P(|Y-\mu|<k\sigma)\geq 1-\frac{1}{k^2}$.
+
+\section{Continuous Distributions}
+A continuous random variable can take any value in an interval of $\mathbb{R}$.
+The distribution of $Y$ is given by $f(y)$, the probability density function
+(pdf) which looks a lot like a histogram.
+
+Can sometimes be described as $F(y)$ the (cumulative) distribution function.
+
+\begin{enumerate}
+  \item $P(a \leq Y \leq b) = \int_a^bf(y)dy$
+  \item $0 \leq f(y)$
+  \item $\int_{-\infty}{\infty} f(y)dy = 1$
+  \item $\int_a^a f(y) dy = 0$
+\end{enumerate}
+
+\subsection{Expected Value}
+\begin{equation}
+  E[Y] = \int_{-\infty}^{\infty} y f(y) dy
+\end{equation}
+\begin{equation}
+  E[y] = \int_{-\infty}^{\infty} g(y) f(y) dy
 \end{equation}
 \end{document}
