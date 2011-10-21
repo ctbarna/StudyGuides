@@ -164,10 +164,16 @@ $\sum_{0}^{n}\frac{x^n}{x!}=e^x$.
 \end{enumerate}
 
 \subsection{Moment Generating Functions}
+The $k$th moment of a random variable $Y$ taken about the origin is defined to
+be $E[Y^k]$ and is denoted by $\mu'_k$.
+
 The \textbf{moment generating function} $m(t)$ for a random variable $Y$ is
 defined to be $m(t)=E(e^{tY})$. We say that a moment-generating function for
 $Y$ exists if there exists a positive constant $b$ such that $m(t)$ is finite
 for $|t| \leq b$.
+
+If $m(t)$ exists, the $k$th deivative of $m(t)$ with respect to $t$ is
+$\mu'_k$ when you set $t=0$.
 
 \subsection{Tchebysheff's Theorem}
 Let $Y$ be a random variable with mean $\mu$ and finite variance $\sigma^2$.
