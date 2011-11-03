@@ -1,0 +1,178 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm,amsfonts}
+\usepackage{fullpage}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex}
+
+\begin{document}
+\title{MATH 178 (Cryptography) Study Guide}
+\author{Chris Barna (chris@unbrain.net)}
+\date{Fall 2011}
+
+\maketitle
+
+\section{Types of Ciphers/Systems}
+\begin{enumerate}
+  \item \textbf{Stream Ciper}: Operates on a message symbol by symbol or, now,
+    bit by bit.
+  \item \textbf{Block Cipher}: Operates on blocks of symbols or bits.
+  \item \textbf{Transposition Cipher}: Rearranges letters in a plaintext.
+  \item \textbf{Substitution Cipher}: Replaces letters, symbols, etc. with
+    others but doesn't change the order.
+  \item \textbf{Product Cipher}: Alternates substitution and transposition.
+  \item \textbf{Symmetric Key Cryptosystem}: Requires a secret shared key. Key
+    must be agreed upon ahead of time.
+  \item \textbf{Public Key Cryptosystem}: Each user has an encrypting key which
+    is published and a decrypting key which is not.
+\end{enumerate}
+
+\section{Historical Ciphers}
+
+\subsection{Spartan Scytale}
+Example of a transposition cipher. Letters were written on a long strip of
+leather that was wrapped around a cylinder. The diameter of the cylinder was
+the key to decreption.
+
+\subsection{Playfair}
+Key is a word. Write the word, without repeating letters, as the first letters
+of a 5x5 square. Write the remaining letters of the alphabet in order to fill
+in the square. I and J occupy the same space.
+
+\textbf{To encrypt}: Working two letters at a time, make a box with a pair of
+letters and take the letters from the opposite corners of the box. If the
+letters are in the same row, replace each letter with the letter to the right.
+If the letters are in the same column, replace each letter by the letter below
+it.
+
+\subsection{ADFGVX}
+Product cipher with fixed table.
+
+\textbf{To encrypt}: Replace a PT letter/digit by the (row, column) pair.
+Choose a key with no repeated letters (ex: DEUTSCH). Number the letters in the
+key alphabetically. Put partial ciphertext row by row under the key. Write the
+columns numerically in increasing order.
+
+\subsection{Shift Enciphering Transformation}
+If we have $N$ letters, shift enciphering $C = P + b (\text{mod} N)$ where $b$
+is the encrypting key. Decrypting key is $-b$.
+
+\subsection{Affine Cipher}
+$C = aP + b (\text{mod} N$ where $a$, $b$ is the encrypting key.
+$\text{gcd}(a,n) = 1$ otherwise it doesn't work. Total number of key pairs is
+thus $\phi(N) \times (N)$.
+
+\subsection{Digraphs}
+Compute digraphs with $C = a(26) + b$.
+
+\subsection{Stream Cipher}
+Plaintext is encoded in ASCII and then this is XORed with a binary keystream.
+
+\subsection{Pseudo-Random Bit String Generation}
+Say $p$ is a large prime for which $2$ generates $\mathbb{F}_p^*$ and assume
+$q=2p+1$ is also prime. Let $g$ be a specified generater of $\mathbb{F}_q^*$.
+
+The key $k$ is a number with $\text{gcd}(k,2p)=1$. Let $s_1=g^k$ in
+$\mathbb{F}_q^*$ and $s_1 (\text{mod} 2) = k_1$. For $i \geq 1$ let
+$S_{i+1}=S_i^2 \in \mathbb{F}_q^*$.
+
+\section{Number Theory}
+
+\subsection{Modular Arithmetic}
+In general, working mod $m$ breaks integers into $m$ subsets. Each subset
+contains exactly one representative in the interval $0,...,m-1$.
+$\mathbb{Z}/m\mathbb{Z}$ has $m$ elements.
+
+\subsubsection{Solving $ax \equiv b (\text{mod} m)$}
+\begin{enumerate}
+  \item If $\text{gcd}(a,m) = 1$ then $a^{-1}$ exists so
+    $x\equiv a^-1 \cdot b$.
+  \item If $\text{gcd}(a,m) = g > 1$ and if $g | b$ then same as
+    $\frac{a}{g}x\equiv\frac{b}{g} (\text{mod} \frac{m}{g})$
+  \item If $\text{gcd}(a,m) = g > 1$ and if $g \not| b$ then no solution.
+\end{enumerate}
+
+\subsubsection{Properties}
+\begin{enumerate}
+  \item $a \equiv a (\text{mod} m)$.
+  \item if $a \equiv b (\text{mod} m)$ then $b \equiv a (\text{mod} m)$.
+  \item if $a \equiv b (\text{mod} m)$ and $b \equiv c (\text{mod} m)$, then
+    $a \equiv c (\text{mod} m)$.
+  \item if $a \equiv b (\text{mod} m)$ and $c \equiv d (\text{mod} m)$, then
+    $a \pm c \equiv b \pm d (\text{mod} m)$.
+\end{enumerate}
+
+\subsection{$\phi(n)$}
+Counts number of coprimes less than $n$.
+
+\begin{enumerate}
+  \item $\phi(p) = p-1$
+  \item $\phi(p^r) = p^{r-1}(p-1)$
+  \item If $\text{gcd}(m,n) = 1$ then $\phi(mn)= \phi(m) \phi(n)$
+\end{enumerate}
+
+\subsection{$\mathbb{Z} / n\mathbb{Z}$}
+An element $x$ of $\mathbb{Z}/m\mathbb{Z}$ has a multiplicative inverse denoted
+$x^{-1}$. in $\mathbb{Z}/m\mathbb{Z}$ if $\text{gcd}(x,m)=1$. The elements of
+$\mathbb{Z}/m\mathbb{Z}$ with inverses are denoted $\mathbb{Z}/m\mathbb{Z}^*$.
+
+Operations in $\mathbb{Z}/m\mathbb{Z}$ are $+, -, \cdot$. Operations in
+$\mathbb{Z}/m\mathbb{Z}^*$ are $\cdot, \div$.
+
+Size of $\mathbb{Z}/n\mathbb{Z}^*$ is $\phi(n)$.
+
+\subsection{Finite Fields}
+If $p$ is prime then $\mathbb{Z}/p\mathbb{Z}$ is denoted $\mathbb{F}_p$. All
+non-zero elements, $\alpha$, have $\text{gcd}(\alpha, p) = 1$.
+
+\subsubsection{Finite Fields over Polynomials}
+Let $\mathbb{F}_2[x]$ be the set of polynomials with coefficients in
+$\mathbb{F}_2$. If you take $\mathbb{F}_2[x]$ and reduce it by an irreducable
+polynomial of degree $d$, you get all the polynomials of degree lower than $d$.
+This is denoted $\mathbb{F}_{2^d}$. $\mathbb{F}_{2^d}^{*}$ is the non-zero
+elements. Easy to represent these polynomials in a computer.
+
+\section{S-AES}
+In 1997, NIST held a competition to replace DES. In 2001, NIST chose 128-bit
+Rijndael with 128 bit key to become the Advanced Encryption Standard.
+
+AES has full diffusion after two rounds and is non-linear allowing for
+reasonable security. AES is also fairly efficient. Each step can be broken into
+independent calculations.
+
+Simplified AES (Schaefer, Musa, Wedig) operates over the finite fielt
+$\mathbb{F}_16 = \mathbb{F}_2[2]/(x^4+x+1)$.
+
+\subsection{Operations}
+Each function operates on a state, consisting of 4 nibbles.
+
+\subsubsection{S-box}
+Maps from nibbles to nibbles. Can be inverted. Look it up.
+
+\subsubsection{Key Expansion}
+Original key fills $W[0]$ and $W[1]$. For $W[i]$ where $2 \leq i \leq 5$:
+
+\begin{enumerate}
+  \item if $i \equiv 0 (\text{mod} 2)$ then
+    $W[i]=W[i-2]\oplus\text{RCON}(i/2)\oplus\text{SubNib}(\text{RotNib}(W[i-1]))$
+  \item if $i \not\equiv 0 (\text{mod} 2)$ then $W[i]=W[i-2]\oplus W[i-1]$
+\end{enumerate}
+
+$\text{RotNib}(N_0N_1) = N_1N_0$.
+$\text{SubNib}(N_0N_1) = \text{S-box}(N_0)\text{S-box}(N_1)$.
+$\text{RCON}[1]=10000000$, $\text{RCON}[2]=00110000$.
+
+\subsubsection{$A_{K_i}$}
+Add key. XOR $K_i$ with the state.
+
+\subsubsection{$NS$}
+Nibble substitution. Replace each nibble $N_i$ in a state by
+$\text{S-box}(N_i)$. Do not change the order of the nibbles.
+
+\subsubsection{$SR$}
+Shift row. Shift the bottom row of the state.
+
+\subsubsection{$MC$}
+Mix column. Look it up.
+
+
+\end{document}
