@@ -1,0 +1,218 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm}
+\usepackage{fullpage}
+
+\begin{document}
+\title{MATH 123 (Probability and Statistics II) Study Guide}
+\author{Chris Barna (chris@unbrain.net)}
+\date{Winter 2012}
+
+\maketitle
+
+\section{Point Estimators}
+\begin{tabular}{ | l | c | c | c| }
+  \hline
+  & \textbf{Population Parameter} & \textbf{Point Estimator} &
+    \textbf{Standard Error} \\
+  \hline \hline
+  Mean & $\mu$ & $\overline{Y}$ & $\frac{\sigma}{\sqrt{n}}$ \\ \hline
+  Proportion & $p$ & $\hat{p}$ & $\sqrt{\frac{pq}{n}}$ \\ \hline
+  Difference in means & $\mu_1 - \mu_2$ & $\overline{Y_1} - \overline{Y_2}$
+    & $\sqrt{\frac{\sigma^2_1}{n_1}+ \frac{\sigma^2_2}{n_2}}$ \\ \hline
+  Difference in proportions & $p_1 - p_2$ & $\hat{p_1} - \hat{p_2}$
+    & $\sqrt{\frac{p_1q_1}{n_1} + \frac{p_2q_2}{n_2}}$ \\ \hline
+\end{tabular}
+
+\subsection{For $\sigma^2$}
+Sometimes we don't know $\sigma^2$ so we need a point estimator from it. We
+need to replace a parameter ($\sigma^2$) by a point estimator ($S^2$) loses us
+a degree of freedom so:
+\begin{equation}
+  S^2 = \frac{\sum_{i=1}^n (Y_i - \overline{Y})^2}{n-1}
+\end{equation}
+
+Calculators say $\sigma_n$ or $s_n$ for the population standard deviation and
+$\sigma_{n-1}$ or $s_{n-1}$ for the sample standard deviation.
+
+In proportions, we will use $\hat{p}\hat{q}$ as our point estimator for
+$\sigma^2$. It isn't unbiased but we will use it anyway.
+
+
+\section{Confidence Intervals}
+\subsection{For Large $n$}
+If $Y_i$ is even close to mound shaped, we say $n$ is large if $n > 30$. If
+$Y_i$ is binomial and 2 standard deviations fit between 0 and 1 as well as
+$n > 25$ then we can assume $\sigma = \sqrt{\hat{p}\hat{q}}$.
+
+\begin{equation}
+  P(\overline{Y}-z_0 \frac{s}{\sqrt{n}} \leq \mu \leq \overline{Y} 
+    + z_0\frac{s}{\sqrt{n}}) = 1- \alpha
+\end{equation}
+
+\subsection{For Smaller $n$}
+If we assume $Y_i$ is normal,
+$\frac{\overline{Y} - \mu}{\frac{s}{\sqrt{n}}} = T_{n-1}$ for any $n$. So:
+
+\begin{equation}
+  P(\overline{Y} - t_0\frac{s}{\sqrt{n}} \leq \mu \leq \overline{Y} +
+    t_0\frac{s}{\sqrt{n}}) = 1 - \alpha
+\end{equation}
+Where $t_0$ has $n-1$ degrees of freedom.
+
+If you have two populations there are still problems. We can reduce the concern
+by assuming $\sigma_1=\sigma_2=\sigma$ and then use the data from both
+populations to approximate $\sigma$. The point estimator here is called $S_p$.
+
+\begin{equation}
+  S_p^2=\frac{(n_1 -1)s_1^2+(n_2 - 1)s_2^2}{n_1+n_2-2}
+\end{equation}
+
+This allows us to say:
+
+\begin{equation}
+  T_{n_1+n_2-2} = \frac{(\overline{Y_1} - \overline{Y_2})
+    - (\mu_1 - \mu_2)}{S_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}
+\end{equation}
+
+\subsection{For $\sigma^2$}
+$Y_i$ must be normal. For a given $\alpha$, we can use $\chi^2$ table to find
+an $x_1$ and an $x_2$ where $P(x_1 \leq \chi_{n-1}^2 \leq x_2)=1-\alpha$.
+
+Since $Y_i$ is normal: $(n-1)\frac{s^2}{\sigma^2}=\chi_{n-1}^{2}$.
+
+
+\section{Three Important RVs}
+\subsection{$\chi^2_n$}
+Let $z_1,z_2,...,z_n$ be independent standard normals. Then
+$\chi^2_n=z_1^2+z_2^2+...+z_n^2$ is a chi-squared random variable with $n$
+degrees of freedom.
+\begin{enumerate}
+  \item $E[\chi^2_n]=n$
+  \item $V[\chi^2_n]=2n$
+\end{enumerate}
+
+\subsection{Student's t-distribution}
+Let $z$ and $\chi_n^2$ be independent, then
+$T_n = \frac{z}{\sqrt{\chi_n^2}{n}}$.
+\begin{enumerate}
+  \item $V[T_n] = 0$
+  \item $V[T_n] = \frac{n}{n-2}$
+\end{enumerate}
+
+\subsection{F distribution}
+Let $\chi_{n_1}^2$ and $\chi_{n_2}^2$ be independent. Then:
+$F_{n_1}^{n_2} = \frac{\frac{\chi_{n_1}^2}{n_1}}{\frac{\chi_{n_1}^2}{n_1}}$.
+\begin{enumerate}
+  \item $E[F_{n_1}^{n_2}] = \frac{n_2}{n_2 - 2}$
+\end{enumerate}
+
+\section{Hypothesis Testing}
+
+\begin{enumerate}
+  \item {\bf Null Hypothesis}: The null hypothesis is the value of $\mu$ that we
+    assume.
+  \item {\bf Alternative Hypothesis}: We use statistical evidence to see if we
+    can or cannot reject $H_0$ and thereby accept $H_a$.
+  \item {\bf $\alpha$}: The probability of making a Type I error where we
+    mistakenly reject $H_0$.
+  \item {\bf $\beta$}: The probability of making a Type II error where we
+    mistakenly reject $H_a$.
+\end{enumerate}
+
+\subsection{For Variances}
+We assume $Y_i$ is very close to normal. These tests are not very robust to
+violating this assumption. We compute a $\chi^2$ statistic with $n-1$ degrees
+of freedom. Remember, $\chi^2_{n-1} = (n-1)\frac{s^2}{\sigma^2}$.
+
+If we have two populations, we need to do an $F$ test. If
+$\sigma_1^2<\sigma_2^2$, we do $F^{n_1-1}_{n_2-1}=(\frac{s_1}{s_2})^2$. If
+$\sigma_1^2>\sigma_2^2$, we invert that.
+
+\section{MLEs and MVUEs}
+What is the "best" point estimator $\hat{\theta}$ for a given parameter
+$\theta$? Unbiased means $E[\hat{\theta}] = \theta$.
+
+\subsection{Maximum Likelihood Estimators}
+The likelihood function, $L$, is the following function of $\theta$:
+
+\[ L(Y_1,Y_2,...,Y_n|\theta) = p(y_1,y_2,...,y_n|\theta) \]
+
+In general, to find $\hat{\theta}_{MLE}$, we find the $\theta$ that maximizes
+$L$. That is, it satisfies $\frac{dL}{d\theta} = 0$ evaluated at
+$\hat{\theta}_{MLE}$
+
+\begin{enumerate}
+  \item {\bf Invariance}: If $\hat{\theta}$ is the MLE for $\theta$ then, for
+    any function $f$, $f(\hat{\theta})$ is the MLE for $f(\theta)$.
+  \item {\bf Lehmann-Sheffe}: If there is a constant $k$ such that
+    $E[k\hat{\theta}_{MLE}]=\theta$ then $\hat{\theta} = k\theta_{MLE}$. Often
+    $k=1$ but not always.
+\end{enumerate}
+
+\section{Categorical Data}
+\subsection{1 Population, $k$ Categories}
+\begin{equation}
+  \chi^2_{k-1} = \sum_{i=1}^{k}\frac{[n_i - np_i]^2}{np_i}
+\end{equation}
+We need to have each $E[n_i] \geq 5$. We can do a goodness of fit test if we
+replace $p$ by $p_{MLE}$ and then subtract another degree of freedom. For
+hypothesis testing with this method, we chose specific values of $p_i$.
+
+\subsection{$l$ Populations, $k$ Categories}
+We total up each row and column as well as the total count inside the data
+matrix. From there, we can generate a table of expected counts with each entry
+being $\frac{row \times col}{total}$. From there, we calculate a $\chi^2$
+statistic. $H_0$ is always that $p_1, p_2, ...$ are the same for all
+populations. There are $(k-1)(l-1)$ degrees of freedom.
+
+\begin{equation}
+  \sum_{i=1}^{k}\sum_{j=1}^{l}\frac{(n_{ij} - E[n_{ij}])^2}{E[n_{ij}]}
+\end{equation}
+
+This should not be used if:
+\begin{enumerate}
+  \item More than 20\% of the expected counts are < 5.
+  \item Any of the expected counts are < 1.
+\end{enumerate}
+
+\section{ANOVA}
+Used to compare normally distributed data among multiple populations. Similar
+to the section prior because the $H_0$ is always that all populations have the
+same underlying distribution. We assume that the distribution of each
+population is normal and all standard deviations are equal.
+
+\subsection{Basic Terminology}
+\begin{itemize}
+  \item $Y_{ij}$ is the $j$th sample of the $i$th treatment.
+  \item $I$ is the total number of treatments.
+  \item $n_i$ is the sample size of treatment $i$.
+  \item $N$ is the total sample size from all treatments.
+  \item $\bar{Y}_i$ is the sample mean in treatment $i$.
+  \item $\bar{Y}$ is the total sample mean.
+\end{itemize}
+
+\subsection{Useful Sums}
+\begin{itemize}
+  \item \textbf{SST}: $\sum_{i=1}^{I}\sum_{j=1}^{n_i}(\bar{Y}_i-\bar{Y})^2$
+  \item \textbf{SSE}: $\sum_{i=1}^I\sum_{j=1}^{n_i}(Y_{ij} - \bar{Y}_i)^2$
+    which also equals $\sum_{i=1}^I[(n_i - 1)s_i^2]$
+  \item \textbf{Total SS}: $\sum_{i=1}^{I}\sum_{j=1}^{n_i}(Y_{ij}-\bar{Y})^2$
+    but also: Total SS = SSE + SST.
+\end{itemize}
+
+\subsection{Calculating}
+\begin{itemize}
+  \item $MSE = \frac{SSE}{n-k}$
+  \item $MST = \frac{SST}{k-1}$
+  \item $F^{n-k}_{k-1} = \frac{MST}{MSE}$
+\end{itemize}
+
+\section{Linear Regression}
+\begin{equation}
+  \hat{\beta} = (X^TX)^{-1}X^TY
+\end{equation}
+
+Is the basic model from the given equation
+$E[Y] = \beta_0x_0 + \beta_1x_1+ ... + \beta_kx_k$
+
+\end{document}

@@ -1,0 +1,67 @@
+# SCTR 65
+
+## Lex Orandi, Lex Credendi
+"The law of prayer is the law of belief."
+
+## Neoplatonism
+
+## Christology
+* Long standing question of Jesus' status as human or divine? If he were
+  fully human, how could he be divine? Also, how does Jesus bring about
+  salvation?
+* Early discussion by Origen in the 3rd century.
+* Some councils involved:
+  * Nicea (325)
+    * The first ecumenical council. 220 bishps attended.
+    <!-- * Hypostasis (person).-->
+    * Creed said that the Father and the Son were of the same substance
+      (ousios). The idea of ousios was still ambiguous. Politically,
+      this worked out because Constantine got everyone to agree.
+      Theologically, the disagreement was more complicated.
+  * Ephesus I (431)
+    * Called in opposition to Nestorius by Theodosius.
+      * Nestorius preached that Christ had separate human and divine
+        natures.
+      * Also, Jesus could sin, hypothetically, but did not.
+    * Agreed to call Mary the *theotokos* (God bearer) over Nestorius'
+      word of *christotokos*. The argument was that Nestorius' word
+      didn't make Jesus unique.
+  * Chalcedon (451)
+    * Repudiated the idea that Christ only had one nature.
+    * Hypostatic union.
+    * 2 natures in 1 person. "Full humanity, full divinity".
+    * 4 negations: unconfused, unchangable, indivisible, inseperable.
+
+## Trinitology
+Was the Logos-Son eternal or was he created? Originally started as a
+dispute between Alexander and Arius
+* The term was first used by Tertullian.
+  * Three persons, one substance. First taken as heresy because he
+    developed the doctrine as a Montanist but later accepted.
+* Heresy:
+  * Modalism: 3 modes of 1 hypostasis.
+* Arianism:
+  * 4th century.
+  * Son is subordinate to the father.
+  * 3 hypostases, heteroousios.
+  * "There was once when the son of God was not"
+  * In response, Alexander, the Bishop of Alexandria, convened a council
+    to condemn Arianism:
+    * Council of Nicea
+    * "Begotten not made"
+    * Officially declared Arianism a heresy.
+* Cappadocian Fathers: 3 hypostases, 1 ousia (being).
+  * Basil of Caeseria: relationship between trinity is similar to that
+    between humans and humanity.
+* Constantine proposed homoiousios (like substance) but was turned down.
+* Overemphasis:
+  * Oneness:
+    * Irenaeus: Goodness of God, unifies the 3 people.
+      * Against gnostic subdivision of God.
+    * Arius: Jesus is not consubstantial, is the highest of all
+      creatures.
+  * Plurality:
+    * Tertulian
+    * Origen
+      * Creates inferior, subgods.
+      * God created a spirit world before the actual world.

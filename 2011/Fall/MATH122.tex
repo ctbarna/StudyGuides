@@ -2,7 +2,7 @@
 \usepackage{amsmath,amsthm,amsfonts}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1ex}
-% \usepackage{fullpage}
+\usepackage{fullpage}
 
 \begin{document}
 \title{Math 122 (Probability and Statistics) Study Guide}
@@ -200,4 +200,148 @@ Can sometimes be described as $F(y)$ the (cumulative) distribution function.
 \begin{equation}
   E[y] = \int_{-\infty}^{\infty} g(y) f(y) dy
 \end{equation}
+
+\subsection{Uniform Distributions}
+$Y$ is uniformly distributed between $a$ and $b$ if it has an equal chance of
+taking any value between $a$ and $b$.
+\begin{equation}
+  f(y) =
+    \begin{cases}
+      \frac{1}{B-A}  & \text{if } A \leq y \leq B \\
+      0  & \text{otherwise}
+    \end{cases}
+\end{equation}
+
+\begin{equation}
+  E[Y]=\frac{B+A}{2}
+\end{equation}
+\subsection{Normal Distributions}
+\begin{equation}
+  f(y) = \frac{1}{\sqrt{2\pi}} e^{\frac{-(y-\mu)^2}{2\sigma^2}}
+\end{equation}
+Normal curves are bell shaped. The top of the bell corresponds to $y=\mu$.
+Points of inflection correspond to $y=\mu \pm \sigma$.
+
+\begin{enumerate}
+  \item $P(\mu - \sigma \leq Y \leq \mu + \sigma) \approx .68$
+  \item $P(\mu - 2\sigma \leq Y \leq \mu + 2\sigma) \approx .95$
+  \item $P(\mu - 3\sigma \leq Y \leq \mu + 3\sigma) \approx .997$
+\end{enumerate}
+
+All normal random variables' probabilities can be reduced to the probability
+for just the standard normal ($z$). Use a $z$-chart where
+$z=\frac{y-\mu}{\sigma}$
+
+\subsubsection{Moment Generating Functions}
+For a normally distributed RV with mean $\mu$ and variance $\sigma^2$:
+
+\begin{equation}
+  m(t) = E[e^{tY}] = e^{\mu t + \frac{\sigma^2}{2}\mu^2}
+\end{equation}
+
+\section{Multivariate Probabilities}
+\subsection{Joint Probability Functions}
+For a discrete probability, $P(Y_1=y_1, ..., Y_n=y_n) = p(y_1,...,y_n)$ is
+called the joint probability function. For a continuous probability,
+$f(y_1,y_2,...,y_n)$ is the joint probability density density function.
+
+\subsubsection{Properties}
+\begin{enumerate}
+  \item $0 \leq p(y_1,y_2,..., y_n) \leq 1$ for discrete.
+    $0 \leq f(y_1,y_2,...y_n)$ for continuous.
+  \item $\sum_{Y_1}\sum_{Y_2}\cdots\sum_{Y_N} p(y_1, y_2, ..., y_n) = 1$ for
+    discrete.
+    $\int_{-\infty}^{\infty}\cdots\int_{-\infty}{\infty} f(y_1, y_2,...y_n) dy_1..dy_n$
+    for continuous.
+\end{enumerate}
+
+\subsubsection{Marginal Densities and Probabilities}
+Often we only care about the probability of only one of the RVs. To isolate
+it's behaviour, we loot at marginal probabilities.
+
+\[ P(Y_1=y) = p_1(y) = \sum_{y_2}\cdots\sum_{y_n} p(y, y_2, ..., y_n) \]
+
+Similar for continuous:
+
+\[ f_1(y) = \int_{-\infty}^{\infty}\cdots\int_{-\infty}{\infty} f(y, y_2,...y_n) dy_2..dy_n \]
+
+\subsection{Expected Values}
+\[ E[g(Y_1, Y_2, ..., Y_n)] = \sum_{Y_1}\sum_{Y_2}\cdots\sum_{Y_n}
+g(y_1,...,y_n) p(y_1, ..., y_n)\]
+
+\[ \int_{-\infty}^{\infty}\cdots\int_{-\infty}{\infty} g(y_1,...,y_n)
+f(y_1,...,y_n) dy_1 \cdots dy_n \]
+
+For binomial, $E[Y] = np$
+\subsection{Covariance and Correlation}
+We want to know how related the behavior of 2 RVs, $Y_1$ and $Y_2$ is.
+Covariance measures this.
+
+\[ \text{Cov}[Y_1, Y_2] = E[(Y_1 - \mu_1)(Y_2 - \mu_2)] \]
+
+\begin{enumerate}
+  \item $\text{Cov}[Y_1, Y_1] = \text{Var}[Y_1]$
+  \item $\text{Cov}[Y_1, Y_2] = E[Y_1,Y_2] - \mu_1\mu_2$
+\end{enumerate}
+
+We can normalize this to make it a bit more meaningful:
+
+\[
+\rho_{Y_1,Y_2} = \text{Cor}[Y_1,Y_2] =
+\frac{\text{Cov}[Y_1,Y_2]}{\sigma_1\sigma_2} = E[\frac{Y_1 -
+\mu_1}{\sigma_1}\frac{Y_2 - \mu_2}{\sigma_2}]
+\]
+\subsection{Independent RVs}
+Two discrete RVs are independent if and only if
+$P(Y_1=y_1,Y_2=y_2)=p_1(y_1)p_2(y_2)$. Similarly, two continuous RVs are
+independent if $f(y_1,y_2) = f_1(y_1)f_2(y_2)$.
+
+If $f(y_1,y_2) = g(y_1)h(y_2)$ for $y_1, y_2$ in the rectangle $y_1\in[a,b]$
+and $y_2\in[c,d]$ and $f(y_1,y_2) = 0$ outside this rectangle then $Y_1$ and
+$Y_2$ are independent.
+
+$E[g(y_1)h(y_2)] = E[g(Y_1)]E[h(Y_2)]$ if $Y_1$ and $Y_2$ are independent.
+
+\subsection{Special Variance Something}
+If $Y=c_1y_1 + c_2y_2 + \cdots + c_ny_n$, then:
+
+\[ V[Y] = \sum_{i=1}^{n}c_i^2V[Y_i] +
+\sum_{i=1}^{n}\sum_{j=1}^{n} c_i c_j \text{Cov}[Y_i,Y_j]\]
+
+\section{Central Limit Theorem}
+As $n$ goes to infinity of the sample mean, the distribution of $\bar{Y}$ gets
+more and more normal. If $Y_i$ is nor normal, $\bar{Y}$ is usually essentailly
+normal when $n \geq 25$.
+
+\subsection{Sample Mean}
+Let $Y_1,Y_2,...,Y_n$ be $n$ samples that are independent and identically
+distributed. The sample mean is $\bar{Y} = \frac{\sum Y_i}{n}$. The mean of
+$\bar{Y}$ is $\mu$. The standard devition of $\bar{Y}$ is
+$\frac{\sigma}{\sqrt{n}}$
+
+\subsection{Applications}
+\subsubsection{Weak Law of Large Numbers}
+For every $\epsilon > 0$,
+$\lim_{n \to \infty} P(|\bar{Y}_n - \mu| > \epsilon) = 0$.
+\subsubsection{Strong Law of Large Numbers}
+$\lim_{n \to \infty} \bar{Y}_n = \mu$ for $s \in S - \mathbb{S}$ where
+$P(\mathbb{S}) = 0$.
+
+\section{Functions of Random Variables}
+\subsection{Method of Transformations}
+Often we know $f_Y(y)$, the pdf for a RV $Y$ but we then want to know $f_U(u)$
+where $U=h(Y)$. That is, we want the pdf of a function of y.
+
+We know $P(y_1 \leq Y \leq y_2) = P(h(y_1) \leq h(Y) \leq h(y_2)$ and that
+$\int_{y_1}^{y_2}f_Y(y)dy=\int_{h(y_1)}^{h(y_2)}f_U(u)du$. From this, we can
+establish the folowing formula:
+
+\[f_U(u) = f_Y(h^{-1}(u)) \frac{dh^{-1}(u)}{du} = f_Y(y)\frac{dy}{du}\]
+\subsection{Computer Generation of Standard Normal Numbers}
+
+$z=\sqrt{-2\text{ln}y_1}\cos(2\pi y_2)$ where $Y_1$ and $Y_2$ are two sucessive
+numbers from a computer generated uniform number between 0 and 1.
+\subsection{Order Statistics}
+\[f_{Y_{max}} = P(Y_{max} \leq y) = n(F(y))^{n-1}f(y)\]
+\[f_{Y_{min}} = P(Y_{min} > y) = n[1-F(y)]^{n-1}f(y)\]
 \end{document}
